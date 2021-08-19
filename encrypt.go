@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"github.com/urfave/cli/v2"
+	"os"
+	"path"
 )
 
 func Encrypt(context *cli.Context) error {
@@ -17,6 +19,10 @@ func Encrypt(context *cli.Context) error {
 	encrypted, err := NewCipher(pool.Key).Encrypt([]byte(context.Args().Get(0)))
 	if err != nil {
 		return err
+	}
+	if context.Bool("with-command") {
+		fmt.Printf("%s decrypt --psyche %s %s", path.Base(os.Args[0]), context.String("psyche"), encrypted)
+		return nil
 	}
 	fmt.Println(encrypted)
 	return nil

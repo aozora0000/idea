@@ -70,6 +70,11 @@ func main() {
 						Required: true,
 						Usage:    "psyche name",
 					},
+					&cli.BoolFlag{
+						Name:    "with-command",
+						Aliases: []string{"W"},
+						Usage:   "with decrypt command",
+					},
 				},
 			},
 		},
