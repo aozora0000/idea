@@ -18,6 +18,6 @@ func Decrypt(context *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(raw)
+	fmt.Print(raw)
 	return nil
 }
