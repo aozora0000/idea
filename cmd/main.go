@@ -23,45 +23,52 @@ func init() {
 func main() {
 	app := &cli.App{
 		Name:                 path.Base(os.Args[0]),
-		Usage:                "alias subcommand from file",
+		Usage:                "encrypt decrypt tool from psyche",
 		EnableBashCompletion: true,
 		Commands: []*cli.Command{
 			{
 				Name:   "path",
 				Action: idea.Path,
+				Usage:  "display psyches directory",
 			},
 			{
 				Name:   "create",
 				Action: idea.Create,
+				Usage:  "create psyche",
 				Flags: []cli.Flag{
 					&cli.StringFlag{
 						Name:     "psyche",
 						Aliases:  []string{"P"},
 						Required: true,
+						Usage:    "psyche name",
 					},
 				},
 			},
 			{
 				Name:    "decrypt",
 				Action:  idea.Decrypt,
+				Usage:   "decrypt string by psyche",
 				Aliases: []string{"dec"},
 				Flags: []cli.Flag{
 					&cli.StringFlag{
 						Name:     "psyche",
 						Aliases:  []string{"P"},
 						Required: true,
+						Usage:    "psyche name",
 					},
 				},
 			},
 			{
 				Name:    "encrypt",
 				Action:  idea.Encrypt,
+				Usage:   "encrypt string by psyche",
 				Aliases: []string{"enc"},
 				Flags: []cli.Flag{
 					&cli.StringFlag{
 						Name:     "psyche",
 						Aliases:  []string{"P"},
 						Required: true,
+						Usage:    "psyche name",
 					},
 				},
 			},
